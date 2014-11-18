@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas tag basics</title>
+</head>
+
+<body>
+		<canvas width="500" height="500" id="myCanvas">
+			Sorry, your browser doesn't support HTML5 canvas
+		</canvas>
+		<script>
+
+		var myC = document.getElementById("myCanvas");
+		//this var chooses the rendering context and its built in drawing functions.
+		var ctx = myC.getContext("2d");
+		//make a rectangle(starting x, starting y,width, and height)
+		ctx.fillRect(20,20,100,100);
+		//you can make a rectangle outline:
+		ctx.strokeRect(10,10,120,120);
+		//to draw a line, first announce you're starting
+		ctx.beginPath();
+		//lift your pen and move it to the starting coordinate.
+		ctx.moveTo(50,300);
+		//from there draw a line to another coordinate
+		ctx.lineTo(77,270);
+		ctx.lineTo(107,330);
+		//draw a curve using the arc(center-x,canter-y, radius)
+		ctx.arc(400,400,75,75,Math.PI,true);
+		//then fill or stroke the path
+		ctx.stroke();
+
+		///////////image////////////////
+
+		var img = new Image();
+		//add handler:"if  itlaods, draw it"
+		img.addEventListener("load",function(){
+			ctx.drawImage(img,350,20,250,225);
+		},false);
+		//cause the onload to happen
+		img.src="img/Desert.jpg";
+
+
+		</script>
+
+
+</body>
